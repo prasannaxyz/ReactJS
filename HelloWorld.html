@@ -1,20 +1,23 @@
 <html>
 
-    <script src="js/react.development.js"></script>
-    <script src="js/react-dom.development.js"></script>
-    <script src="js/babel.js"></script>
-    
+<script src="js/react.development.js"></script>
+<script src="js/react-dom.development.js"></script>
+<script src="js/babel.js"></script>
 
-    <body>
-        <div></div>
-    </body>
 
-    <script type="text/babel">
-        function HelloWorldComponent(){
-            var content=<h1>Hello World</h1>;
-            return content;
-        }
-        ReactDOM.render(<HelloWorldComponent></HelloWorldComponent>,document.getElementsByTagName('div')[0]);
-    </script>
+<body>
+    <div></div>
+</body>
+
+<script type="text/babel">
+    function HelloWorldContent() {
+        return <h1>Hello World</h1>;
+    }
+    function HelloWorldComponent() {
+        var content = <div> <HelloWorldContent></HelloWorldContent> <HelloWorldContent></HelloWorldContent> <HelloWorldContent></HelloWorldContent> <HelloWorldContent></HelloWorldContent> </div>;
+        return content;
+    }
+    ReactDOM.render(<HelloWorldComponent></HelloWorldComponent>, document.getElementsByTagName('div')[0]);
+</script>
 
 </html>
