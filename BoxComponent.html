@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.js"></script>
+    <style>
+        .box {
+            width: 70px;
+            height: 70px;
+            border: 1px solid red;
+            display: inline-block;
+            text-align: center;
+            line-height: 65px;
+            margin-right: -5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="boxId"/> 
+
+</body>
+
+<script type="text/babel">
+    function BoxComponent(object){
+
+        return <div className="box">{object.id}</div>;
+
+    }
+    ReactDOM.render(<div> <div ><BoxComponent id="1"/> <BoxComponent id="2"/> <BoxComponent id="3"/> </div> 
+                           <div><BoxComponent id="4"/> <BoxComponent id="5"/> <BoxComponent id="6" /> </div>
+                           <div><BoxComponent id="7"/> <BoxComponent id="8"/> <BoxComponent id="9"/> </div>
+                           </div>, document.getElementById('boxId'));
+</script>
+
+</html>
