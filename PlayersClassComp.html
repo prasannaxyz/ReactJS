@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.js"></script>
+</head>
+
+<body>
+
+    <div id="playersId" />
+
+
+</body>
+
+<script type='text/babel'>
+
+    class DisplayPlayers extends React.Component {
+        render() {
+            return <div>
+                <Player name='Sachin' place='Mumbai'></Player>
+                <Player name='Sehwag' place='Delhi'></Player>
+                <Player name='Panth' place='Delhi'> </Player>
+            </div>;
+        }
+    }
+    class Player extends React.Component {
+        render() {
+            return <h1>This is {this.props.name} from {this.props.place}.</h1>;
+        }
+    }
+    ReactDOM.render(<DisplayPlayers></DisplayPlayers>, document.getElementById('playersId'));
+</script>
+
+</html>

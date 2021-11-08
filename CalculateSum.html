@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.js"></script>
+</head>
+
+<body>
+
+    <div id='div1'></div>
+
+
+    <script type="text/babel">
+        class Add extends React.Component {
+
+            cal = () => {
+                console.log("Function called", this);
+                let n1 = this.refs.input1;
+                let n2 = this.refs.input2;
+                let n3 = this.refs.result;
+                n3.innerText = Number(n1.value) + Number(n2.value)
+
+            }
+            render() {
+                return <div>
+                    <p><b>Input1:</b> <input ref="input1" /> </p>
+                    <p><b>Input2:</b> <input ref="input2" /> </p>
+                    <button onClick={this.cal}>Sum</button>
+                    <p ref="result">0</p>
+                </div>
+            }
+        }
+
+        ReactDOM.render(<Add />, document.getElementById('div1'));
+    </script>
+</body>
+
+</html>
