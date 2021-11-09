@@ -11,6 +11,16 @@
     <div id="primeNumbersDisplayId"></div>
     <script type="text/babel">
         class FindAndDisplayPrimeNumber extends React.Component {
+            commonLogic(n, isPrimeNumber) {
+                var isPrimeNumber = true;
+                for (let i = 2; i < n; i++) {
+                    if (n % i == 0) {
+                        isPrimeNumber = false;
+                        break;
+                    }
+                }
+                return isPrimeNumber;
+            }
             checkPrimeNumber = () => {
                 let n = Number(this.refs.primeRef.value);
                 var isPrimeNumber = true;
@@ -19,12 +29,7 @@
                     return;
                 }
                 if (n) {
-                    for (let i = 2; i < n; i++) {
-                        if (n % i == 0) {
-                            isPrimeNumber = false;
-                            break;
-                        }
-                    }
+                    isPrimeNumber = this.commonLogic(n);
                 }
 
                 if (isPrimeNumber) {
@@ -43,19 +48,12 @@
                     return;
                 }
                 for (let k = 2; k <= n; k++) {
-                    var isPrimeNumber = true;
-                    for (let i = 2; i < k; i++) {
-                        if (k % i == 0) {
-                            isPrimeNumber = false;
-                            break;
-                        }
-
-                    }
+                    var isPrimeNumber = this.commonLogic(k);
                     if (isPrimeNumber) {
                         primeNumbers[count++] = k;
                     }
                 }
-               
+
                 this.refs.primeNumberResultRef.innerText = primeNumbers;
                 this.refs.primeNumberResultRef.style.wordWrap = "break-word";
             }
